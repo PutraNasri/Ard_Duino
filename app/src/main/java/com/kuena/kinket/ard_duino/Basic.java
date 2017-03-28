@@ -76,7 +76,7 @@ public class Basic extends AppCompatActivity implements ListView.OnItemClickList
                 String alat_bahan = jo.getString(config.TAG_ALAT_BAHAN);
                 String code = jo.getString(config.TAG_CODE);
                 String langkah = jo.getString(config.TAG_LANGKAH);
-                String hasil = jo.getString(config.TAG_HASIL);
+                // String hasil = jo.getString(config.TAG_HASIL);
 
 
 
