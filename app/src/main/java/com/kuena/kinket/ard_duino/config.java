@@ -7,6 +7,7 @@ public class config {
     //String Alamat untuk CRUD
 
     public static final String URL_GET_BASIC="http://cobabflf.esy.es/getbasic.php";
+    public static final String URL_SHOW_BASIC="http://cobabflf.esy.es/showbasic.php?id=";
 
 
 
@@ -45,7 +46,7 @@ public class config {
 
 
     //employee id untuk di gunakan membuka halaman intent lain
-    public static final String EMP_ID = "emp_id";
+    public static final String EMP_ID = "id";
     public static final String EMP_ID_meuraxa = "emp_id";
     public static final String EMP_LOKASI = "emp_lokasi";
 

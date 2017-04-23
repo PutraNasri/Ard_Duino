@@ -1,6 +1,8 @@
 package com.kuena.kinket.ard_duino;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,10 +21,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Basic extends AppCompatActivity implements ListView.OnItemClickListener{
+public class Basic extends Activity implements ListView.OnItemClickListener{
     private ListView listView;
     private String JSON_STRING;
     private TextView text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,16 +75,13 @@ public class Basic extends AppCompatActivity implements ListView.OnItemClickList
                 JSONObject jo = result.getJSONObject(i);
                 String id = jo.getString(config.TAG_ID);
                 String judul = jo.getString(config.TAG_JUDUL);
-                String image = jo.getString(config.TAG_IMAGE);
-                String alat_bahan = jo.getString(config.TAG_ALAT_BAHAN);
-                String code = jo.getString(config.TAG_CODE);
-                String langkah = jo.getString(config.TAG_LANGKAH);
-                // String hasil = jo.getString(config.TAG_HASIL);
 
 
 
-                Toast.makeText(this, judul, Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
                 HashMap<String,String> employees = new HashMap<>();
+                employees.put(config.TAG_ID,id);
                 employees.put(config.TAG_JUDUL,judul);
 
                 list.add(employees);
@@ -101,6 +101,25 @@ public class Basic extends AppCompatActivity implements ListView.OnItemClickList
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(this, sh_basic.class);
+        HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
 
+        String empId = map.get(config.TAG_ID).toString();
+
+        intent.putExtra(config.EMP_ID,empId);
+        Toast.makeText(this, empId, Toast.LENGTH_SHORT).show();
+       startActivity(intent);
+     //   finish();
+    }
+    public void sensor (View v){
+        Intent intent = new Intent(this, Sensor.class);
+        startActivity(intent);
+    }
+    public  void iot (View v){
+        Intent intent = new Intent(this, Iot.class);
+        startActivity(intent);
+    }
+    public void segar (View v){
+        getJSON();
     }
 }

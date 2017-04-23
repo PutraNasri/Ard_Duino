@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ard_Duino</string>
+    <string name="title_activity_sensor">Sensor</string>
 </resources>
